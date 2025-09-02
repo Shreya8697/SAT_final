@@ -27,7 +27,7 @@ function Sidebar() {
       </div>
 
       {/* Sidebar for Desktop */}
-      <div className="hidden md:flex flex-col h-screen bg-gray-900 text-white w-64 p-4 fixed top-0 left-0 z-30">
+      <div className="hidden md:flex flex-col h-screen bg-gray-900 text-white w-70 p-4 fixed top-0 left-0 z-30">
         <div className="flex items-center mb-6 bg-white p-2 rounded">
           <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
         </div>
