@@ -51,12 +51,12 @@ function Sidebar() {
       {isOpen && (
         <div className="fixed inset-0 z-50 flex">
           {/* Overlay */}
-          <div
+          {/* <div
             className="fixed inset-0 bg-black opacity-50"
             onClick={() => setIsOpen(false)}
             tabIndex={0}
             aria-label="Close Menu"
-          ></div>
+          ></div> */}
           {/* Sidebar */}
           <div className="relative bg-gray-900 text-white w-64 h-full p-4 shadow-lg z-50">
             <button
