@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
         <StickyNavbar/>
-      Home page
+      Home page Hello  Ji
     </div>
   )
 }
