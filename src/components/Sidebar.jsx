@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // icons
+import { Menu, X } from "lucide-react";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation Links
   const navLinks = [
     { to: "/dashboard", label: "Dashboard" },
     { to: "/courses", label: "Courses" },
@@ -19,11 +18,11 @@ function Sidebar() {
       <div className="md:hidden bg-gray-900 text-white px-4 py-3 flex justify-between items-center shadow fixed top-0 left-0 right-0 z-40">
         <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(true)}
           className="focus:outline-none"
           aria-label="Open Menu"
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Menu className="h-6 w-6" />
         </button>
       </div>
 
@@ -38,7 +37,7 @@ function Sidebar() {
               key={to}
               to={to}
               className={`hover:text-yellow-400 transition-colors ${
-                location.pathname === to ? "text-yellow-400" : ""
+                location.pathname === to ? "text-yellow-400 font-semibold" : ""
               }`}
             >
               {label}
@@ -47,27 +46,26 @@ function Sidebar() {
         </nav>
       </div>
 
-      {/* Sidebar for Mobile (drawer) */}
+      {/* Sidebar Drawer for Mobile */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex">
-          {/* Overlay */}
-          {/* <div
-            className="fixed inset-0 bg-black opacity-50"
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-40 z-40"
             onClick={() => setIsOpen(false)}
-            tabIndex={0}
-            aria-label="Close Menu"
-          ></div> */}
-          {/* Sidebar */}
-          <div className="relative bg-gray-900 text-white w-64 h-full p-4 shadow-lg z-50">
-            <button
-              className="absolute top-4 right-4 text-white"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close Menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <div className="flex items-center mb-6">
+          />
+
+          {/* Drawer */}
+          <div className="fixed top-0 left-0 w-64 h-full bg-gray-900 text-white p-4 shadow-lg z-50">
+            <div className="flex items-center justify-between mb-6">
               <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
+              <button
+                onClick={() => setIsOpen(false)}
+                aria-label="Close Menu"
+                className="text-white"
+              >
+                <X className="h-6 w-6" />
+              </button>
             </div>
             <nav className="flex flex-col gap-4">
               {navLinks.map(({ to, label }) => (
@@ -75,19 +73,21 @@ function Sidebar() {
                   key={to}
                   to={to}
                   className={`hover:text-yellow-400 transition-colors ${
-                    location.pathname === to ? "text-yellow-400" : ""
+                    location.pathname === to
+                      ? "text-yellow-400 font-semibold"
+                      : ""
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsOpen(false)} // Close drawer on nav click
                 >
                   {label}
                 </Link>
               ))}
             </nav>
           </div>
-        </div>
+        </>
       )}
 
-      {/* Spacer for mobile top bar to avoid overlap */}
+      {/* Spacer for Mobile Top Bar */}
       <div className="md:hidden h-14" />
     </>
   );

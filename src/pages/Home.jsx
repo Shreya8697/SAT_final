@@ -23,7 +23,6 @@ function Home() {
           <Sidebar />
         </div>
       )}
-
       {/* Right Content */}
       <div className={`flex flex-col ${sidebarOpen ? "w-4/5" : "w-full"}`}>
         {/* Topbar */}
@@ -36,7 +35,6 @@ function Home() {
             <Menu size={22} />
           </button>
         </div>
-
         {/* Main Content */}
         <div className="p-6 flex-1 overflow-auto">
           <Outlet /> {/* Route content yaha load hoga */}
