@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import Edit from "../components/Edit";
+import ChangePassword from "../components/ChangePassword";
 
 function Profile() {
   const [isEditing, setIsEditing] = useState(false);
+  const [PasswordChange, setPasswordChange]= useState(false);
 
   if (isEditing) {
     return <Edit onCancel={() => setIsEditing(false)} />;
+  }
+
+  if(PasswordChange){
+    return <ChangePassword onCancel={() => setPasswordChange(false)} />;
   }
 
   return (
@@ -56,7 +62,9 @@ function Profile() {
           >
             Edit Profile
           </button>
-          <button className="px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 w-full sm:w-auto">
+          <button 
+          onClick={() => setPasswordChange(true)}
+          className="px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 w-full sm:w-auto">
             Change Password
           </button>
         </div>
