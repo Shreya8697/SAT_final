@@ -10,6 +10,7 @@ function Sidebar() {
     { to: "/dashboard", label: "Dashboard" },
     { to: "/courses", label: "Courses" },
     { to: "/profile", label: "Profile" },
+    {to: "/practice", label: "Practice" },
   ];
 
   return (
