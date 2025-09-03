@@ -19,12 +19,11 @@ function Home() {
     <div className="flex h-screen">
       {/* Sidebar (hide/unhide) */}
       {sidebarOpen && (
-        <div className="w-1/5">
           <Sidebar />
-        </div>
       )}
+      
       {/* Right Content */}
-      <div className={`flex flex-col ${sidebarOpen ? "w-4/5" : "w-full"}`}>
+      <div className={`flex flex-col ${sidebarOpen ? "w-full" : "w-full"}`}>
         {/* Topbar */}
         <div className="h-12 bg-gray-100 border-b flex items-center justify-between px-4 shadow">
           <h1 className="text-lg font-semibold">{getPageTitle()}</h1>
