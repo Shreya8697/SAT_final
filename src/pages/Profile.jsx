@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Edit from "../components/Edit";
 
 function Profile() {
+  const [isEditing, setIsEditing] = useState(false);
+
+  if (isEditing) {
+    return <Edit onCancel={() => setIsEditing(false)} />;
+  }
+
   return (
     <div className="p-6 md:p-10 bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-6 md:p-10">
@@ -43,7 +50,10 @@ function Profile() {
 
         {/* Action Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row gap-4">
-          <button className="px-4 py-2 bg-yellow-400 text-black rounded-lg shadow hover:bg-yellow-500 w-full sm:w-auto">
+          <button
+            onClick={() => setIsEditing(true)}
+            className="px-4 py-2 bg-yellow-400 text-black rounded-lg shadow hover:bg-yellow-500 w-full sm:w-auto"
+          >
             Edit Profile
           </button>
           <button className="px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 w-full sm:w-auto">
